@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import LoginScreen from "@/screens/LoginScreen";
+import OnboardingScreen from "@/components/OnboardingScreen"
 
 export default function Index() {
   return (
@@ -8,7 +8,7 @@ export default function Index() {
         flex: 1,
       }}
     >
-      <LoginScreen/>
+      <OnboardingScreen/>
     </View>
   );
 }
