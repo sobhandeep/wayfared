@@ -6,6 +6,17 @@ export const styles = StyleSheet.create({
     padding: 25,
     backgroundColor: 'white'
   },
+  textInputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderColor: 'grey',
+    borderWidth: 1,
+    borderRadius: 15,
+    marginTop: "10%"
+  },
+  textInputError:{
+    borderColor: 'red'
+  },
   headerText: {
     fontFamily: 'outfit-bold',
     fontSize: 30,
@@ -18,10 +29,7 @@ export const styles = StyleSheet.create({
   textInput: { 
     fontFamily: 'outfit',
     padding: 15,
-    borderColor: 'grey',
-    borderWidth: 1,
-    borderRadius: 15,
-    marginTop: '10%'
+    flex: 1
   },
   signinButton: {
     padding: 15,
@@ -34,6 +42,12 @@ export const styles = StyleSheet.create({
     color: 'white',
     textAlign: 'center',
     fontSize: 16
+  },
+  errorText: {
+    fontFamily: 'outfit',
+    color: 'red',
+    marginTop: 5,
+    marginLeft: 5,
   },
   createAccountContainer: {
     flexDirection: 'row', 
@@ -49,5 +63,12 @@ export const styles = StyleSheet.create({
     fontFamily: 'outfit',
     fontSize: 16, 
     color: 'blue'
-  }
+  },
+  visibilityIcon: {
+    marginLeft: 10
+  },
+  showPassword: {
+    marginLeft: 10,
+    marginRight: 15
+  },
 })
