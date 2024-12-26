@@ -38,7 +38,7 @@ export const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     textAlign: 'center',
-    fontFamily: 'outfit',
+    fontFamily: 'outfit-medium',
     fontSize: 18,
   },
   buttonImage: {

@@ -68,6 +68,7 @@ export default function SignUp() {
         createdAt: new Date(),
       });
       console.log('User document created in Firestore!');
+      router.replace('/MyTrip')
     } catch (error) {
       console.log('Error registering user:', error.code);
       if(error.code === 'auth/email-already-in-use'){

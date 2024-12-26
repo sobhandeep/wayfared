@@ -38,7 +38,7 @@ export const styles = StyleSheet.create({
     borderRadius: 25,
   },
   buttonText: {
-    fontFamily: 'outfit',
+    fontFamily: 'outfit-medium',
     color: 'white',
     textAlign: 'center',
     fontSize: 16

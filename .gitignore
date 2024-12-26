@@ -35,4 +35,10 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
+#Keys
+Keys.jsx
+
+#env
+.env
+
 app-example
