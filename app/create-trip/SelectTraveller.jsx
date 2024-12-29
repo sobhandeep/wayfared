@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, FlatList } from 'react-native'
+import { View, Text, TouchableOpacity, FlatList, ToastAndroid } from 'react-native'
 import React, { useContext, useEffect, useState } from 'react'
 import { useRouter } from 'expo-router'
 import { styles } from '@/styles/SelectTravellerStyles'
@@ -25,6 +25,7 @@ export default function SelectTraveller() {
       >
         <TouchableOpacity
           style={styles.backButton}
+          onPress={()=>{router.back()}}
         >
           <Ionicons name='arrow-back' size={24}/>
         </TouchableOpacity>
@@ -61,6 +62,14 @@ export default function SelectTraveller() {
       />
       <TouchableOpacity
         style={styles.continueButton}
+        onPress={()=>{
+          if(selectedTraveller == null ){
+            ToastAndroid.show("Please Select Traveller", ToastAndroid.BOTTOM)
+          }
+          else{
+            router.push('/create-trip/SelectDates')
+          }
+        }}
       >
         <Text
           style={styles.buttonText}

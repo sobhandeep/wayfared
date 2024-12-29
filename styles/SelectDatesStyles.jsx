@@ -15,31 +15,34 @@ export const styles = StyleSheet.create({
     fontSize: 25,
     paddingLeft: 20,
     paddingBottom: 20
-  },
-  headerText: {
-    fontFamily: 'outfit-bold',
-    fontSize: 30,
-    marginTop: 20,
-  },
-  subheaderText: {
-    fontFamily: 'outfit-bold',
-    fontSize: 20,
-    marginTop: 20,
+    
   },
   backButton: {
     paddingTop: 5,
     paddingLeft: 5
   },
-  continueButton: {
-    padding: 12, 
-    backgroundColor: 'black',
-    borderRadius: 20,
+  headerText: {
+    fontFamily: 'outfit-bold',
+    fontSize: 30,
     marginTop: 20
   },
+  calenderContainer: {
+    marginTop: 30
+  },
+  calenderTextStyle: {
+    fontFamily: 'outfit',
+    fontSize: 16
+  },
+  continueButton: {
+    padding: 12,
+    backgroundColor: 'black',
+    marginTop: 20,
+    borderRadius: 20,
+  },
   buttonText: {
-    fontFamily: 'outfit-medium',
+    color: 'white',
+    fontFamily: 'outfit',
     fontSize: 18,
     textAlign: 'center',
-    color: 'white'
   }
 })
