@@ -1,38 +1,28 @@
 import { View, Text, TouchableOpacity, ToastAndroid } from 'react-native'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { styles } from '@/styles/SelectDatesStyles'
 import { Ionicons } from '@expo/vector-icons'
 import { useRouter } from 'expo-router'
-import CalendarPicker from 'react-native-calendar-picker'
-import moment from 'moment'
+import DateTimePicker from 'react-native-ui-datepicker'
 import {CreateTripContext} from '@/context/CreateTripContex'
 
 export default function SelectDates() {
   const [startDate, setStartDate] = useState()
   const [endDate, setEndDate] = useState()
   const {tripData, setTripData} = useContext(CreateTripContext)
-  const onDateChange = (date, type) => {
-    if(date !== null && type == 'START_DATE'){
-      setStartDate(moment(date))
-    }
-    else if(date !== null){
-      setEndDate(moment(date))
-    }
-  }
   const handleContinue = () => {
     if(!startDate || !endDate){
       ToastAndroid.show("Enter Start Date and End Date", ToastAndroid.BOTTOM)
       return
     }
     const totalNoOfDays = endDate.diff(startDate, 'days') + 1
-    console.log(totalNoOfDays)
     setTripData({
       ...tripData,
       startDate: startDate,
       endDate: endDate,
       totalNoOfDays: totalNoOfDays
     })
-    router.push('/create-trip/SelectBudjet')
+    router.push('/create-trip/SelectBudget')
   }
 	const router = useRouter()
   return (
@@ -62,14 +52,20 @@ export default function SelectDates() {
       <View
         style={styles.calenderContainer}
       >
-        <CalendarPicker 
-          onDateChange={onDateChange} 
-          allowRangeSelection={true}
-          textStyle={styles.calenderTextStyle}
-          selectedDayColor='black'
-          selectedDayTextColor='white'
-          scrollable={true}
-        />
+        <DateTimePicker
+        mode="range"
+        startDate={startDate}
+        endDate={endDate}
+        onChange={(params) => {
+          setStartDate(params.startDate)
+          setEndDate(params.endDate)
+        }}
+        calendarTextStyle={{fontFamily: 'outfit'}}
+        todayTextStyle={{color: 'black'}}
+        todayContainerStyle={{borderColor: 'black'}}
+        selectedItemColor='black'
+        selectedRangeBackgroundColor='#bdbdbd'
+      />
       </View>
       <TouchableOpacity
         style={styles.continueButton}

@@ -27,11 +27,7 @@ export const styles = StyleSheet.create({
     marginTop: 20
   },
   calenderContainer: {
-    marginTop: 30
-  },
-  calenderTextStyle: {
-    fontFamily: 'outfit',
-    fontSize: 16
+    marginTop: 30,
   },
   continueButton: {
     padding: 12,

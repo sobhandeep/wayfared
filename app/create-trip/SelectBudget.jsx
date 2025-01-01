@@ -1,21 +1,21 @@
 import { View, Text, TouchableOpacity, FlatList, ToastAndroid } from 'react-native'
 import React, { useContext, useEffect, useState } from 'react'
 import { useRouter } from 'expo-router'
-import { styles } from '@/styles/SelectTravellerStyles'
+import { styles } from '@/styles/SelectBudgetStyles'
 import { Ionicons } from '@expo/vector-icons'
-import { SelectTravellerList } from '@/constants/Options'
+import { SelectBudgetOptions } from '@/constants/Options'
 import OptionCard from '@/components/OptionCard'
 import {CreateTripContext} from '@/context/CreateTripContex'
 
-export default function SelectTraveller() {
-  const [selectedTraveller, setSelectedTraveller] = useState(null)
+export default function SelectBudget() {
+  const [selectedBudget, setSelectedBudget] = useState(null)
   const {tripData, setTripData} = useContext(CreateTripContext)
   const router = useRouter()
   useEffect(()=>{
     setTripData({...tripData, 
-      traveller: selectedTraveller
+      budget: selectedBudget?.title
     })
-  }, [selectedTraveller])
+  }, [selectedBudget])
   return (
     <View
       style={styles.container}
@@ -33,29 +33,29 @@ export default function SelectTraveller() {
           style={styles.titleText}
           onPress={()=>{router.back()}}
         >
-          Traveller
+          Budget
         </Text>
       </View>
       <Text
         style={styles.headerText}
       >
-        Who is Travelling?
+        Select Budget
       </Text>
       <Text
         style={styles.subHeaderText}
       >
-        Choose your travellers
+        Choose Spending Habits for This Trip
       </Text>
       <FlatList
-        data={SelectTravellerList}
+        data={SelectBudgetOptions}
         renderItem={({item, index}) => (
           <TouchableOpacity 
             style={{marginTop: 15}}
-            onPress={()=>setSelectedTraveller(item)}
+            onPress={()=>setSelectedBudget(item)}
           >
             <OptionCard
               option={item}
-              selected={selectedTraveller}
+              selected={selectedBudget}
             />
           </TouchableOpacity>
         )}
@@ -63,11 +63,11 @@ export default function SelectTraveller() {
       <TouchableOpacity
         style={styles.continueButton}
         onPress={()=>{
-          if(selectedTraveller == null ){
-            ToastAndroid.show("Please Select Traveller", ToastAndroid.BOTTOM)
+          if(selectedBudget == null ){
+            ToastAndroid.show("Please Select Budget", ToastAndroid.BOTTOM)
           }
           else{
-            router.push('/create-trip/SelectDates')
+            router.push('/create-trip/ReviewTrip')
           }
         }}
       >

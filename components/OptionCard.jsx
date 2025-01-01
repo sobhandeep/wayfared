@@ -7,25 +7,25 @@ export default function OptionCard({option, selected}) {
     <View
       style={[
         styles.container,
-        selected?.id == option?.id && {borderWidth: 2}
+        selected?.id == option.id && {borderWidth: 2}
       ]}
     >
       <View>
         <Text
           style={styles.titleText}
         >
-          {option.title}
+          {option?.title}
         </Text>
         <Text
           style={styles.descriptionText}
         >
-          {option.description}
+          {option?.description}
         </Text>
       </View>
       <Text
         style={styles.icon}
       >
-        {option.icon}
+        {option?.icon}
       </Text>
     </View>
   )
