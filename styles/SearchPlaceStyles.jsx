@@ -18,6 +18,11 @@ export const styles = StyleSheet.create({
     paddingBottom: 20
     
   },
+  headerText: {
+    marginTop: 20,
+    fontFamily: 'outfit-bold',
+    fontSize: 30,
+  },
   backButton: {
     paddingTop: 5,
     paddingLeft: 5

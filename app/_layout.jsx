@@ -20,6 +20,7 @@ export default function RootLayout() {
         <Stack.Screen name='create-trip/SelectTraveller' options={{headerShown: false}} />
         <Stack.Screen name='create-trip/SelectDates' options={{headerShown: false}} />
         <Stack.Screen name='create-trip/SelectBudget' options={{headerShown: false}} />
+        <Stack.Screen name='create-trip/ReviewTrip' options={{headerShown: false}} />
       </Stack>
     </CreateTripContext.Provider>
   );

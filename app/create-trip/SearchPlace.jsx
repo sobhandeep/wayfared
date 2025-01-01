@@ -41,6 +41,11 @@ export default function SearchPlace() {
           Search
         </Text>
       </View>
+      <Text
+        style={styles.headerText}
+      >
+        Search Places
+      </Text>
       <SearchBar
         apiKey={FIREBASE_API}
         onPlaceSelected={handlePlaceSelected}
