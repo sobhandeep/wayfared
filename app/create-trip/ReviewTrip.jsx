@@ -109,6 +109,7 @@ export default function ReviewTrip() {
 			</View>
 			<TouchableOpacity
 				style={styles.continueButton}
+				onPress={() => {router.navigate('/create-trip/GenerateTrip')}}
 			>
 				<Text
 					style={styles.buttonText}

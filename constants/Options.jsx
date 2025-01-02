@@ -49,3 +49,5 @@ export const SelectBudgetOptions = [
     icon: '💸'
   }
 ]
+
+export const PROMT_TEMPLATE = `Generate a travel plan for Location: {location} for {totalDays} Days and {totalNights} Nights starting from {startDate} to {endDate} for {traveller} with a {budget} Budget with Flight Details, Flight Prices with booking url, Hotel option list with HotelName, Hotel address, Price, hotel image url, geo coordinates, rating, descripion and Places to visit with PlaceName, Place Details, place image url, geo coordinates, ticket pricing, time to travel each of the location, for {totalDays} Days and {totalNights} Nights with each day plan with best time to visit in JSON format`

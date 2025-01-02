@@ -2,14 +2,14 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import React, { useContext } from 'react'
 import { useRouter } from 'expo-router'
 import SearchBar from '@/components/SearchBar'
-import {FIREBASE_API} from '@/constants/Keys'
+import { GOOGLE_CLOUD_API } from '@/constants/Keys'
 import { styles } from '@/styles/SearchPlaceStyles'
 import { CreateTripContext } from '@/context/CreateTripContex'
 import { Ionicons } from '@expo/vector-icons'
 
 export default function SearchPlace() {
   const router = useRouter()
-  const {tripData, setTripData} = useContext(CreateTripContext)
+  const { tripData, setTripData } = useContext(CreateTripContext)
   const handlePlaceSelected = (place, details) => {
     setTripData({
       locationInfo: {
@@ -29,11 +29,11 @@ export default function SearchPlace() {
       <View
         style={styles.titleContainer}
       >
-         <TouchableOpacity
+        <TouchableOpacity
           style={styles.backButton}
-          onPress={()=> {router.back()}}
+          onPress={() => { router.back() }}
         >
-          <Ionicons name='arrow-back' size={24}/>
+          <Ionicons name='arrow-back' size={24} />
         </TouchableOpacity>
         <Text
           style={styles.titleText}
@@ -47,7 +47,7 @@ export default function SearchPlace() {
         Search Places
       </Text>
       <SearchBar
-        apiKey={FIREBASE_API}
+        apiKey={GOOGLE_CLOUD_API}
         onPlaceSelected={handlePlaceSelected}
       />
     </View>

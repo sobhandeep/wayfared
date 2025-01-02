@@ -2,13 +2,12 @@ import { View } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import OnboardingScreen from "@/components/OnboardingScreen"
 import { auth } from "@/configs/FireBaseConfig"
-import { Redirect, router } from "expo-router";
+import { Redirect } from "expo-router";
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import SignIn  from './auth/signin/index'
 
 export default function Index() {
-  const user = auth.currentUser
   const [isFirstTime, setIsFirstTime] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   
@@ -37,7 +36,7 @@ export default function Index() {
     return () => unsubscribe();
   }, []);
 
-  if (isFirstTime === null) {
+  if (isFirstTime === null || isLoggedIn === null) {
     return <View />;
   }
   if (isFirstTime) {
@@ -46,9 +45,6 @@ export default function Index() {
         <OnboardingScreen />
       </View>
     );
-  }
-  if(isLoggedIn === null){
-    return <View />;
   }
   return (
     <View style={{ flex: 1 }}>

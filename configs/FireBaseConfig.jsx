@@ -2,10 +2,10 @@ import { initializeApp } from "firebase/app";
 import { initializeAuth, getReactNativePersistence } from "firebase/auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { getFirestore } from "firebase/firestore";
-import { FIREBASE_API, AUTH_DOMAIN, PROJECT_ID, STORAGE_BUCKET, MESSAGE_SENDING_ID, APP_ID } from "@/constants/Keys"
+import { GOOGLE_CLOUD_API, AUTH_DOMAIN, PROJECT_ID, STORAGE_BUCKET, MESSAGE_SENDING_ID, APP_ID } from "@/constants/Keys"
 
 const firebaseConfig = {
-  apiKey: FIREBASE_API,
+  apiKey: GOOGLE_CLOUD_API,
   authDomain: AUTH_DOMAIN,
   projectId: PROJECT_ID,
   storageBucket: STORAGE_BUCKET,
