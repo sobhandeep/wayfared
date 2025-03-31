@@ -1,7 +1,11 @@
 {
   "expo": {
+    "androidNavigationBar": {
+      "visible": "immersive",
+      "backgroundColor": "#2B166A"
+    },
     "name": "WayFared",
-    "slug": "wayFared",
+    "slug": "WayFared",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",

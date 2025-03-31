@@ -55,6 +55,7 @@ export default function GenerateTrip() {
         traveller: tripData?.traveller?.title,
         budget: tripData?.budget,
         tripPlan: response,
+        photoRef: tripData?.locationInfo?.photoRef
 
       })
     }

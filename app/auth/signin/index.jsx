@@ -11,7 +11,7 @@ export default function SignIn() {
 	const router = useRouter()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false)
   const [isPasswordCorrect, setIsPasswordCorrect] = useState(true)
 	useEffect(() => {
 		navigation.setOptions({
@@ -123,6 +123,6 @@ export default function SignIn() {
           </View>
         </View>
       </View>
-      </SafeAreaView>
+    </SafeAreaView>
 	)
 }

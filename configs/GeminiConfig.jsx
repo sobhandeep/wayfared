@@ -5,7 +5,7 @@ const {
   HarmCategory,
   HarmBlockThreshold,
 } = require("@google/generative-ai");
-  
+
 const apiKey = GEMINI_API;
 const genAI = new GoogleGenerativeAI(apiKey);
 
@@ -27,13 +27,245 @@ export const chatSession = model.startChat({
     {
       role: "user",
       parts: [
-        {text: "Generate a travel plan for Location: Australia for 9 Days and 8 Nights for Just Me with a Luxury Budget with Flight Details, Flight Prices with booking url, Hotel option list with HotelName, Hotel address, Price, hotel image url, geo coordinates, rating, descripion and Places to visit with PlaceName, Place Details, place image url, geo coordinates, ticket pricing, time to travel each of the location, for 9 Days and 8 Nights with each day plan with best time to visit in JSON format"},
+        { text: "Generate a travel plan for Location: London, UK for 7 Days and 6 Nights for Family with a Moderate Budget with Flight Details, Flight Prices with booking url, Hotel option list with HotelName, Hotel address, Price, hotel image url, geo coordinates, rating, descripion and Places to visit with PlaceName, Place Details, place image url, geo coordinates, ticket pricing, time to travel each of the location, for 7 Days and 6 Nights with each day plan with best time to visit in JSON format" },
       ],
     },
     {
       role: "model",
       parts: [
-        {text: "```json\n{\n  \"trip_details\": {\n    \"location\": \"Australia\",\n    \"duration\": \"9 Days 8 Nights\",\n    \"travelers\": \"1 (Solo)\",\n    \"budget\": \"Luxury\"\n  },\n  \"flights\": {\n    \"international\": {\n      \"departure_city\": \"Your Departure City (e.g., Los Angeles)\",\n      \"arrival_city\": \"Sydney (SYD)\",\n      \"estimated_price\": \"USD 2000-5000 (Round Trip, Business Class)\",\n       \"booking_url\": \"https://www.google.com/flights\",\n      \"airline_options\": [\n        {\n          \"airline\": \"Qantas\",\n           \"airline_url\": \"https://www.qantas.com/\"\n        },\n        {\n          \"airline\": \"United Airlines\",\n           \"airline_url\": \"https://www.united.com/\"\n        },\n          {\n          \"airline\": \"Emirates\",\n           \"airline_url\": \"https://www.emirates.com/\"\n        }\n      ]\n      },\n      \"domestic\":{\n        \"details\": \"Flights between Sydney, Melbourne, and Cairns included in daily plan below\",\n        \"estimated_price\": \"USD 300-800\",\n         \"booking_url\": \"https://www.google.com/flights\",\n         \"airline_options\": [\n        {\n          \"airline\": \"Qantas\",\n           \"airline_url\": \"https://www.qantas.com/\"\n        },\n        {\n          \"airline\": \"Virgin Australia\",\n           \"airline_url\": \"https://www.virginaustralia.com/\"\n        }\n      ]\n      }\n  },\n  \"hotels\": {\n    \"sydney\": [\n      {\n        \"hotel_name\": \"Park Hyatt Sydney\",\n        \"address\": \"7 Hickson Rd, The Rocks NSW 2000, Australia\",\n        \"price\": \"USD 800-1500/night\",\n        \"image_url\": \"https://www.hyatt.com/content/dam/hyatt/hyattdam/images/2022/04/26/1024/Sydney-P164-Park-Hyatt-Sydney-Exterior-Night.jpg/Sydney-P164-Park-Hyatt-Sydney-Exterior-Night.16x9.jpg?imwidth=1920\",\n         \"geo_coordinates\": { \"latitude\": -33.8589, \"longitude\": 151.2086 },\n        \"rating\": \"5-star\",\n        \"description\": \"Opulent waterfront hotel with iconic Sydney Opera House views. Offers world-class dining, a luxurious spa, and impeccable service.\"\n      },\n      {\n        \"hotel_name\": \"Four Seasons Hotel Sydney\",\n        \"address\": \"199 George St, Sydney NSW 2000, Australia\",\n        \"price\": \"USD 700-1400/night\",\n         \"image_url\": \"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/1b/f1/7a/four-seasons-hotel-sydney.jpg?w=1200&h=-1&s=1\",\n        \"geo_coordinates\": { \"latitude\": -33.8637, \"longitude\": 151.2090 },\n        \"rating\": \"5-star\",\n        \"description\": \"Sophisticated hotel in the heart of Sydney, boasting harbor views, elegant accommodations, and top-tier amenities.\"\n      }\n\n    ],\n      \"melbourne\": [\n         {\n        \"hotel_name\": \"The Langham, Melbourne\",\n        \"address\": \"1 Southgate Ave, Southbank VIC 3006, Australia\",\n        \"price\": \"USD 600-1200/night\",\n         \"image_url\": \"https://images.trvl-media.com/hotels/1000000/810000/802800/802726/8d7e6724_z.jpg\",\n          \"geo_coordinates\": { \"latitude\": -37.8194, \"longitude\": 144.9643 },\n        \"rating\": \"5-star\",\n        \"description\": \"Classic luxury hotel with a riverside location, featuring opulent rooms, fine dining, and a renowned spa.\"\n      },\n      {\n        \"hotel_name\": \"Crown Towers Melbourne\",\n        \"address\": \"8 Whiteman St, Southbank VIC 3006, Australia\",\n        \"price\": \"USD 700-1300/night\",\n        \"image_url\": \"https://assets.atdw-online.com.au/images/6381f754dd0e97b298f52c2e/atdw_87571_1.jpg?rect=0,0,1920,1440&w=1200\",\n        \"geo_coordinates\": { \"latitude\": -37.8234, \"longitude\": 144.9618 },\n        \"rating\": \"5-star\",\n        \"description\": \"Lavish hotel within the Crown entertainment complex, offering stunning views, multiple dining options, and a world-class casino.\"\n      }\n\n    ],\n      \"cairns\": [\n        {\n          \"hotel_name\": \"Shangri-La The Marina, Cairns\",\n          \"address\": \"Pier Point Rd, Cairns City QLD 4870, Australia\",\n          \"price\": \"USD 400-900/night\",\n           \"image_url\": \"https://cache.shangri-la.com/cache/uploaded/7/9c/79c67527260978935cb73c68f6175324995202f6.jpg?imwidth=1920\",\n         \"geo_coordinates\": { \"latitude\": -16.9179, \"longitude\": 145.7792 },\n          \"rating\": \"5-star\",\n          \"description\": \"Waterfront hotel with marina views, featuring luxurious accommodations, excellent dining, and access to the Great Barrier Reef.\"\n        },\n        {\n          \"hotel_name\": \"Riley, a Crystalbrook Collection Resort\",\n          \"address\": \"131-141 Esplanade, Cairns City QLD 4870, Australia\",\n          \"price\": \"USD 350-800/night\",\n           \"image_url\": \"https://assets.atdw-online.com.au/images/2a57ab4688cb7899f4a9a696/atdw_87571_1.jpg?rect=0,0,1920,1440&w=1200\",\n           \"geo_coordinates\": { \"latitude\": -16.9195, \"longitude\": 145.7777 },\n          \"rating\": \"5-star\",\n           \"description\": \"Stylish resort on the Cairns Esplanade with modern design, a lagoon pool, and a range of dining and recreational options.\"\n        }\n      ]\n  },\n  \"itinerary\": [\n    {\n      \"day\": 1,\n      \"theme\": \"Arrival in Sydney & Harbour Exploration\",\n      \"best_time_to_visit\": \"Year-round, pleasant in Spring (Sep-Nov) and Autumn (Mar-May)\",\n      \"activities\": [\n        {\n           \"activity\": \"Arrival at Sydney Airport (SYD), Private Transfer to Park Hyatt Sydney\",\n            \"time\": \"Morning\"\n           },\n        {\n          \"place_name\": \"Sydney Opera House\",\n          \"details\": \"Take a guided tour of this architectural marvel and enjoy breathtaking harbor views.\",\n          \"image_url\": \"https://www.sydneyoperahouse.com/static/images/home/hero-mobile-1920x1080.jpg\",\n           \"geo_coordinates\": { \"latitude\": -33.8567, \"longitude\": 151.2153 },\n          \"ticket_price\": \"AUD 42-195\",\n          \"travel_time\": \"15 min from hotel\",\n          \"time\": \"Afternoon\"\n        },\n        {\n          \"place_name\": \"Sydney Harbour Bridge\",\n           \"details\": \"Climb the bridge for panoramic views or take a leisurely walk across. \",\n          \"image_url\": \"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/51/4f/9a/sydney-harbour-bridge.jpg?w=1200&h=-1&s=1\",\n            \"geo_coordinates\": { \"latitude\": -33.8521, \"longitude\": 151.2110 },\n          \"ticket_price\": \"AUD 268-400 (Bridge Climb)\",\n         \"travel_time\": \"5 min from Opera House\",\n           \"time\": \"Late Afternoon\"\n        },\n        {\n            \"activity\": \"Fine Dining Experience at a Harbourside Restaurant\",\n            \"time\": \"Evening\"\n        }\n      ]\n    },\n    {\n      \"day\": 2,\n      \"theme\": \"Sydney's Beaches & Coastal Beauty\",\n      \"best_time_to_visit\": \"Summer (Dec-Feb) for beach activities\",\n      \"activities\": [\n         {\n            \"activity\": \"Private Guided Tour to Bondi Beach\",\n            \"time\": \"Morning\"\n           },\n        {\n          \"place_name\": \"Bondi Beach\",\n          \"details\": \"Relax on the golden sands, take a surf lesson, or stroll along the famous coastal walk.\",\n           \"image_url\": \"https://www.bondivillage.com.au/wp-content/uploads/2023/11/bondi-beach-aerial-scaled.jpg\",\n           \"geo_coordinates\": { \"latitude\": -33.8919, \"longitude\": 151.2752 },\n          \"ticket_price\": \"Free (Surf lessons at own cost)\",\n          \"travel_time\": \"30 min from hotel\",\n          \"time\": \"Morning - Afternoon\"\n        },\n          {\n          \"place_name\": \"Coastal Walk from Bondi to Coogee\",\n           \"details\": \"Enjoy the breathtaking ocean views and cliffside scenery along this iconic trail.\",\n          \"image_url\": \"https://assets.atdw-online.com.au/images/966d24891f1768382918b84c/atdw_14043_1.jpg?rect=0,0,1920,1440&w=1200\",\n           \"geo_coordinates\": { \"latitude\": -33.9183, \"longitude\": 151.2576 },\n          \"ticket_price\": \"Free\",\n          \"travel_time\": \"3-4 hrs hiking\",\n          \"time\": \"Afternoon\"\n        },\n        {\n           \"activity\": \"Enjoy fresh seafood dinner at a restaurant overlooking the ocean\",\n           \"time\": \"Evening\"\n        }\n      ]\n    },\n     {\n      \"day\": 3,\n      \"theme\": \"Blue Mountains Scenic Escape\",\n       \"best_time_to_visit\": \"Autumn (Mar-May) for cooler weather and vibrant foliage\",\n      \"activities\": [\n        {\n          \"activity\":\"Private Car Transfer to the Blue Mountains\",\n          \"time\": \"Morning\"\n        },\n        {\n          \"place_name\": \"Three Sisters\",\n          \"details\": \"Witness the iconic rock formation from Echo Point and learn about its Aboriginal significance.\",\n           \"image_url\": \"https://www.bluemts.com.au/media/images/three-sisters-katoomba.1024x0.jpg\",\n           \"geo_coordinates\": { \"latitude\": -33.7298, \"longitude\": 150.3140 },\n           \"ticket_price\":\"Free\",\n          \"travel_time\":\"2 hr 30 min from Hotel\",\n          \"time\": \"Morning\"\n        },\n         {\n          \"place_name\": \"Scenic World\",\n           \"details\": \"Experience the Scenic Railway, Skyway, and Cableway, and explore the rainforest trails.\",\n           \"image_url\": \"https://www.scenicworld.com.au/wp-content/uploads/2023/03/1920x1080-Scenic-Railway-v2.jpg\",\n           \"geo_coordinates\": { \"latitude\": -33.7235, \"longitude\": 150.3097 },\n          \"ticket_price\": \"AUD 50-60\",\n          \"travel_time\": \"10 min from Three Sister\",\n          \"time\":\"Afternoon\"\n\n         },\n          {\n          \"activity\":\"Luxury lunch at a restaurant with mountain views\",\n          \"time\":\"Late Afternoon\"\n        },\n          {\n            \"activity\":\"Private Transfer back to Sydney\",\n            \"time\":\"Evening\"\n          }\n       ]\n    },\n    {\n      \"day\": 4,\n      \"theme\": \"Melbourne - City Culture & Art\",\n      \"best_time_to_visit\":\"Spring (Sep-Nov) or Autumn (Mar-May) for mild weather\",\n       \"activities\": [\n          {\n          \"activity\": \"Morning Flight from Sydney (SYD) to Melbourne (MEL), Private Transfer to The Langham, Melbourne\",\n            \"time\":\"Morning\"\n        },\n        {\n          \"place_name\": \"Federation Square\",\n           \"details\": \"Visit the city's central hub, showcasing contemporary architecture, cultural events, and art installations. \",\n           \"image_url\":\"https://www.visitvictoria.com/-/media/atdw/melbourne/things-to-do/arts-and-culture/federation-square/5b1908154f29457c8859f302-1920x1080.jpeg?h=885&iar=0&w=1570&hash=9F5AF098F151A53A3233AD46E9A37D1266C9F1B9\",\n            \"geo_coordinates\": { \"latitude\": -37.8177, \"longitude\": 144.9672 },\n           \"ticket_price\": \"Free\",\n           \"travel_time\": \"15 min from hotel\",\n           \"time\": \"Afternoon\"\n        },\n        {\n          \"place_name\": \"Street Art Laneways\",\n           \"details\": \"Explore Melbourne's famous laneways like Hosier Lane and AC/DC Lane, adorned with vibrant street art.\",\n           \"image_url\": \"https://assets.atdw-online.com.au/images/b00b4c9a31024554a3e62cb4/atdw_1253_1.jpg?rect=0,0,1920,1440&w=1200\",\n           \"geo_coordinates\": { \"latitude\": -37.8155, \"longitude\": 144.9683 },\n          \"ticket_price\": \"Free\",\n          \"travel_time\": \"5 min walk from Federation Square\",\n          \"time\":\"Late Afternoon\"\n        },\n           {\n            \"activity\":\"Fine Dining in Melbournes restaurant.\",\n            \"time\":\"Evening\"\n           }\n      ]\n    },\n    {\n      \"day\": 5,\n      \"theme\":\"Melbourne's Sporting & Shopping\",\n       \"best_time_to_visit\":\"Autumn (Mar-May) for mild weather and fewer crowds\",\n       \"activities\": [\n         {\n          \"place_name\": \"Melbourne Cricket Ground (MCG)\",\n          \"details\":\"Take a tour of this iconic stadium, steeped in Australian sporting history.\",\n          \"image_url\":\"https://www.mcg.org.au/-/media/mcg/images/site-images/mcg-landing-page-header.jpg?h=480&la=en&w=1200&hash=2AF6A7A56AD419B34B9F115B994668EE8194252D\",\n            \"geo_coordinates\": { \"latitude\": -37.8200, \"longitude\": 144.9831 },\n          \"ticket_price\":\"AUD 35 - 45\",\n           \"travel_time\":\"15 min from Hotel\",\n           \"time\":\"Morning\"\n         },\n          {\n          \"place_name\": \"Royal Botanic Gardens\",\n          \"details\": \"Escape to the tranquility of these beautiful gardens, home to diverse plant collections and scenic walking paths. \",\n           \"image_url\":\"https://www.rbg.vic.gov.au/-/media/rbg/images/website-update-2021/home-page-images/gardens-panorama-website-1920x1080px-2.jpg?h=885&iar=0&w=1570&hash=128D36B36719DE2A85B5DF792CF67B381CD95866\",\n           \"geo_coordinates\": { \"latitude\": -37.8315, \"longitude\": 144.9754 },\n          \"ticket_price\": \"Free\",\n          \"travel_time\": \"10 min from MCG\",\n           \"time\": \"Afternoon\"\n         },\n         {\n          \"place_name\":\"Luxury Shopping at Chadstone Shopping Centre\",\n           \"details\":\"Indulge in retail therapy at Australia's largest shopping center, featuring high-end boutiques and designer labels. \",\n            \"image_url\": \"https://www.chadstone.com.au/-/media/chadstone/hero-carousel/202305-chadstone-exterior-header-1920x800.jpg?h=800&iar=0&w=1920&hash=C2D355981593E4C6D40D5E870F2640E56960A81E\",\n           \"geo_coordinates\": { \"latitude\": -37.9061, \"longitude\": 145.0823 },\n           \"ticket_price\":\"Free\",\n            \"travel_time\":\"20-30 mins from RBG\",\n           \"time\":\"Late Afternoon\"\n         },\n         {\n          \"activity\":\"Dinner at a High end restaurant\",\n            \"time\":\"Evening\"\n           }\n        ]\n     },\n     {\n      \"day\": 6,\n      \"theme\": \"Cairns & The Great Barrier Reef\",\n       \"best_time_to_visit\": \"Dry season (May-Oct) for optimal reef conditions and pleasant weather\",\n        \"activities\": [\n             {\n           \"activity\": \"Morning Flight from Melbourne (MEL) to Cairns (CNS), Private Transfer to Shangri-La The Marina, Cairns\",\n            \"time\": \"Morning\"\n           },\n           {\n            \"activity\": \"Luxury Catamaran Cruise to the Great Barrier Reef\",\n             \"details\": \"Enjoy snorkeling, scuba diving, or a glass-bottom boat tour of the world's largest coral reef system.\",\n             \"image_url\": \"https://media.cntraveler.com/photos/5a94b64b6f941275a912f6a9/master/w_3840%2Cc_limit/Great-Barrier-Reef-GettyImages-835312156.jpg\",\n               \"geo_coordinates\": { \"latitude\": -16.9249, \"longitude\": 145.7876 },\n             \"ticket_price\": \"AUD 350-600\",\n              \"travel_time\":\" 30 min from hotel\",\n              \"time\":\"Full Day\"\n           },\n           {\n           \"activity\":\"Dinner at a waterfront restaurant in Cairns\",\n            \"time\":\"Evening\"\n           }\n        ]\n    },\n     {\n      \"day\": 7,\n      \"theme\":\"Daintree Rainforest & Aboriginal Culture\",\n       \"best_time_to_visit\": \"Dry Season (May-Oct) for comfortable jungle exploration\",\n      \"activities\": [\n           {\n              \"activity\":\"Private Guided Tour to the Daintree Rainforest\",\n              \"time\":\"Morning\"\n           },\n           {\n           \"place_name\": \"Daintree Rainforest\",\n             \"details\":\"Explore the ancient rainforest with an Aboriginal guide, learn about the local flora and fauna, and experience the breathtaking beauty of this World Heritage Site.\",\n             \"image_url\":\"https://daintreerainforest.com/wp-content/uploads/2015/03/daintree-rainforest-cape-tribulation.jpg\",\n              \"geo_coordinates\": { \"latitude\": -16.2383, \"longitude\": 145.4479 },\n             \"ticket_price\":\"AUD 200-350\",\n              \"travel_time\":\"1.5 - 2 hours from Cairns\",\n             \"time\":\"Full Day\"\n           },\n             {\n               \"activity\": \"Enjoy dinner at a restaurant featuring local rainforest produce\",\n                \"time\":\"Evening\"\n             }\n        ]\n    },\n     {\n      \"day\": 8,\n       \"theme\": \"Relaxation and Departure Preparation\",\n        \"best_time_to_visit\": \"Anytime\",\n      \"activities\":[\n         {\n            \"activity\": \"Enjoy a Leisurely Morning, spa treatment at Hotel\",\n              \"time\":\"Morning\"\n           },\n            {\n              \"activity\":\"Explore Cairns City, last minute shopping\",\n               \"time\":\"Afternoon\"\n            },\n            {\n           \"activity\": \"Farewell Dinner at a fine-dining restaurant in Cairns\",\n            \"time\":\"Evening\"\n           }\n\n        ]\n     },\n    {\n        \"day\":9,\n         \"theme\":\"Departure\",\n        \"best_time_to_visit\": \"Anytime\",\n        \"activities\":[\n             {\n               \"activity\":\"Private Transfer from Hotel to Cairns Airport (CNS)\",\n              \"time\":\"Morning\"\n             },\n            {\n              \"activity\":\"Departure Flight from Cairns\",\n             \"time\":\"Afternoon\"\n            }\n        ]\n    }\n  ]\n}\n```"},
+        {
+          text: `{
+          "flights": {
+          "airline_options": [
+          {
+          "airline": "British Airways", 
+          "url": "https://www.britishairways.com/"
+          }, 
+          {
+          "airline": "EasyJet", 
+          "url": "https://www.easyjet.com/"
+          }, 
+          {
+          "airline": "Ryanair", 
+          "url": "https://www.ryanair.com/"
+          }], 
+          "booking_url": 
+          "https://www.skyscanner.net/", 
+          "details": "Flights to and from London (e.g., Heathrow - LHR, Gatwick - LGW)", 
+          "estimated_price": "£300-£800 per person (round trip, economy)"}, 
+          "hotels": [
+          {
+          "address": "20-24 Great Windmill St, London W1F 9LN, UK", 
+          "description": "Modern hotel in a central location, close to Piccadilly Circus and theatreland. Offers compact but comfortable rooms.", 
+          "geo_coordinates": 
+          {
+          "latitude": 51.5099, 
+          "longitude": -0.1295, 
+          "hotel_name": "The Z Hotel Piccadilly", 
+          "image_url": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/327138502.jpg?k=a0d312218958542d359f9e34473f640154d0a23c900c5471035e2b433f1c1835&o=&hp=1", 
+          "price": "£100-£200/night", 
+          "rating": "4-star"
+          }}, 
+          {
+          "address": "South Bank, Westminster Bridge Rd, London SE1 7PB, UK", 
+          "description": "Good location near the London Eye, with views of the Thames and Houses of Parliament. Offers comfortable and spacious rooms.", 
+          "geo_coordinates": 
+          {
+          "latitude": 51.5011, 
+          "longitude": -0.1153, 
+          "hotel_name": "Premier Inn London County Hall", 
+          "image_url": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/382346946.jpg?k=b1f9e3c4c5b201ab24f16020a46d8d1d02223db72e0b5715db28c9f1b68e0507&o=&hp=1", 
+          "price": "£120-£250/night", "rating": "4-star"}}], 
+          "itinerary": [
+          [{
+          "day": 1,
+          "theme": "Arrival and Central London",
+          activities: [
+          {
+          "details": "Witness the Changing of the Guard ceremony (check timings beforehand).",
+          geo-coordinates: {
+          "latitude": 51.5014,
+          "longitude": -0.1419 
+          },
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Buckingham_Palace_Exterior.jpg/1280px-Buckingham_Palace_Exterior.jpg",
+          "place_name": "Buckingham Palace",
+          "ticket_price": "Free (ceremony); tours available at a cost.",
+          "travel_time": "Varies depending on transportation."
+          },
+          {
+          "details": "Visit the historic Abbey where coronations and royal weddings take place.",
+          geo-coordinates: {
+          "latitude": 51.5031,
+          "longitude": -0.1277 
+          },
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Westminster_Abbey_2007.jpg/1280px-Westminster_Abbey_2007.jpg",
+          "place_name": "Westminster Abbey",
+          "ticket_price": "£22-30",
+          "travel_time": "Walking distance from Buckingham Palace."
+          },
+          ]
+          },
+          {
+          "day": 2,
+          "theme": "Museums and Parks",
+          activities: [
+          {
+          "details": "Explore history and art from around the world; free entry.",
+          geo-coordinates: {
+          "latitude": 51.519,
+          "longitude": -0.1278 
+          },
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/British_Museum_2016-10-07.jpg/1280px-British_Museum_2016-10-07.jpg",
+          "place_name": "British Museum",
+          "ticket_price": "Free",
+          "travel_time": "Public Transport from Westminster Abbey."
+          },
+          {
+          "details": "Relax, walk, or bike through London's largest Royal Park.",
+          geo-coordinates: {
+          "latitude": 51.5074,
+          "longitude": -0.1627 
+          },
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Hyde_Park_in_London_01.jpg/1280px-Hyde_Park_in_London_01.jpg",
+          "place_name": "Hyde Park",
+          "ticket_price": "Free",
+          "travel_time": "Public Transport from the British Museum.",
+          "best_time_to_visit": "Spring for pleasant park weather"
+          },
+          ]
+          },
+          {
+          "day": 3,
+          "theme": "Iconic Landmarks",
+          activities: [
+          {
+          "details": "Discover the historic castle, home to the Crown Jewels.",
+          geo-coordinates: {
+          "latitude": 51.508,
+          "longitude": -0.0755 
+          },
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Tower_of_London_2009.jpg/1280px-Tower_of_London_2009.jpg",
+          "place_name": "Tower of London",
+          "ticket_price": "£30",
+          "travel_time": "Tube from Hyde Park"
+          },
+          {
+          "details": "Walk across this iconic bridge for stunning city views.",
+          geo-coordinates: {
+          "latitude": 51.5055,
+          "longitude": -0.076 
+          },
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Tower_Bridge_from_the_South_Bank_in_2017.jpg/1280px-Tower_Bridge_from_the_South_Bank_in_2017.jpg",
+          "place_name": "Tower Bridge",
+          "ticket_price": "Free (to walk)",
+          "travel_time": "Walking distance from Tower of London.",
+          "best_time_to_visit": "Anytime, although evening illuminations can add special charm"
+          },
+          ]
+          },
+          {
+          "day": 4,
+          "theme": "Shopping and Theatre",
+          activities: [
+          {
+          "details": "Explore this famous shopping street with department stores and high street brands.",
+          geo-coordinates: {
+          "latitude": 51.514,
+          "longitude": -0.1351
+          },
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Oxford_Street_towards_Marble_Arch_%282011%29.jpg/1280px-Oxford_Street_towards_Marble_Arch_%282011%29.jpg",
+          "place_name": "Oxford Street",
+          "ticket_price": "Varies depending on purchases.",
+          "travel_time": "Tube from Tower Bridge."
+          },
+          {
+          "details": "Enjoy a classic West End show in the evening (book tickets in advance).",
+          geo-coordinates: {
+          "latitude": 51.511,
+          "longitude": -0.124 
+          },
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Shaftesbury_Avenue_London.JPG/1280px-Shaftesbury_Avenue_London.JPG",
+          "place_name": "West End Theatre",
+          "ticket_price": "£25-£100+",
+          "travel_time": "Walking distance from Oxford Street.",
+          "best_time_to_visit": "Anytime, but check show times for theatre"
+          },
+          ]
+          },
+          {
+          "day": 5,
+          "theme": "South Bank and London Eye",
+          activities: [
+          {
+          "details": "Take a ride on this giant Ferris wheel for panoramic city views.",
+          geo-coordinates: {
+          "latitude": 51.5033,
+          "longitude": -0.1195
+          },
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/London_Eye_%28cropped%29.jpg/1280px-London_Eye_%28cropped%29.jpg",
+          "place_name": "London Eye",
+          "ticket_price": "£30-£40",
+          "travel_time": "Walking distance from your hotel."
+          },
+          {
+          "details": "Explore the cultural hub along the South Bank, including street performers and art installations.",
+          geo-coordinates: {
+          "latitude": 51.505,
+          "longitude": -0.115 
+          },
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Southbank_Centre_from_Westminster_Bridge.jpg/1280px-Southbank_Centre_from_Westminster_Bridge.jpg",
+          "place_name": "Southbank Centre",
+          "ticket_price": "Free (entry), events vary in cost.",
+          "travel_time": "Walking distance from London Eye",
+          "best_time_to_visit": "Summer evenings for nice river weather"
+          },
+          ]
+          },
+          {
+          "day": 6,
+          "theme": "Day Trip Option (e.g., Windsor Castle)",
+          activities: [
+          {
+          "details": "(Optional day trip) Visit the Queen's residence and explore the historic castle.",
+          geo-coordinates: {
+          "latitude": 51.483,
+          "longitude": -0.607
+          },
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/WindsorCastle.JPG/1280px-WindsorCastle.JPG",
+          "place_name": "Windsor Castle",
+          "ticket_price": "£26-28",
+          "travel_time": "Train from London Paddington (approx. 1 hour).",
+          "best_ttime_to_visit": "Any time, consider train schedules"
+          }
+          ]
+          },
+          {
+          "day": 7,
+          "theme": "Departure",
+          activities: [
+          {
+          "details": "Transfer to your chosen airport (LHR, LGW, STN, etc.) for your flight home.",
+          geo-coordinates: {
+          "latitude": "",
+          "longitude": ""
+          },
+          "image_url": "",
+          "place_name": "Departure from London Airport",
+          "ticket_price": "",
+          "travel_time": "Varies depending on airport and transport method.",
+          "best_ttime_to_visit": "Anytime"
+          }
+          ]
+          }],  
+          "trip_details": 
+          {
+          "budget": "Moderate", 
+          "duration": "7 Days 6 Nights", 
+          "location": "London, UK", 
+          "travel_dates": "09 Jan 2025 - 15 Jan 2025", 
+          "travelers": "Family (Specify Number)"
+          }}`
+        },
       ],
     },
   ],
