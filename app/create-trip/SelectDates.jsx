@@ -1,10 +1,10 @@
 import { View, Text, TouchableOpacity, ToastAndroid } from 'react-native'
 import React, { useContext, useState } from 'react'
-import { styles } from '@/styles/SelectDatesStyles'
+import { styles } from './../../styles/SelectDatesStyles'
 import { Ionicons } from '@expo/vector-icons'
 import { useRouter } from 'expo-router'
 import DateTimePicker from 'react-native-ui-datepicker'
-import {CreateTripContext} from '@/context/CreateTripContex'
+import {CreateTripContext} from './../../context/CreateTripContex'
 
 export default function SelectDates() {
   const [startDate, setStartDate] = useState()
@@ -53,19 +53,19 @@ export default function SelectDates() {
         style={styles.calenderContainer}
       >
         <DateTimePicker
-        mode="range"
-        startDate={startDate}
-        endDate={endDate}
-        onChange={(params) => {
-          setStartDate(params.startDate)
-          setEndDate(params.endDate)
-        }}
-        calendarTextStyle={{fontFamily: 'outfit'}}
-        todayTextStyle={{color: 'black'}}
-        todayContainerStyle={{borderColor: 'black'}}
-        selectedItemColor='black'
-        selectedRangeBackgroundColor='#bdbdbd'
-      />
+          mode="range"
+          startDate={startDate}
+          endDate={endDate}
+          onChange={(params) => {
+            setStartDate(params.startDate)
+            setEndDate(params.endDate)
+          }}
+          calendarTextStyle={{fontFamily: 'outfit'}}
+          todayTextStyle={{color: 'black'}}
+          todayContainerStyle={{borderColor: 'black'}}
+          selectedItemColor='black'
+          selectedRangeBackgroundColor='#bdbdbd'
+        />
       </View>
       <TouchableOpacity
         style={styles.continueButton}

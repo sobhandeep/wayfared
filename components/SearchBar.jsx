@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, FlatList, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import axios from 'axios';
-import { styles } from '@/styles/SearchBarStyles';
+import { styles } from './../styles/SearchBarStyles';
 
 export default function SearchBar ({ apiKey, onPlaceSelected }) {
   const [query, setQuery] = useState('')

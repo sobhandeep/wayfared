@@ -1,11 +1,11 @@
 import { View, Text, TouchableOpacity, FlatList, ToastAndroid } from 'react-native'
 import React, { useContext, useEffect, useState } from 'react'
 import { useRouter } from 'expo-router'
-import { styles } from '@/styles/SelectBudgetStyles'
+import { styles } from './../../styles/SelectBudgetStyles'
 import { Ionicons } from '@expo/vector-icons'
-import { SelectBudgetOptions } from '@/constants/Options'
-import OptionCard from '@/components/OptionCard'
-import {CreateTripContext} from '@/context/CreateTripContex'
+import { SelectBudgetOptions } from './../../constants/Options'
+import OptionCard from './../../components/OptionCard'
+import {CreateTripContext} from './../../context/CreateTripContex'
 
 export default function SelectBudget() {
   const [selectedBudget, setSelectedBudget] = useState(null)

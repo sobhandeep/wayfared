@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import { styles } from '@/styles/OptionCardStyles'
+import { styles } from './../styles/OptionCardStyles'
 
 export default function OptionCard({option, selected}) {
   return (

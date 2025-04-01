@@ -1,11 +1,11 @@
 import { View, Text, TouchableOpacity, FlatList, ToastAndroid } from 'react-native'
 import React, { useContext, useEffect, useState } from 'react'
 import { useRouter } from 'expo-router'
-import { styles } from '@/styles/SelectTravellerStyles'
+import { styles } from './../../styles/SelectTravellerStyles'
 import { Ionicons } from '@expo/vector-icons'
 import { SelectTravellerList } from '@/constants/Options'
 import OptionCard from '@/components/OptionCard'
-import {CreateTripContext} from '@/context/CreateTripContex'
+import {CreateTripContext} from './../../context/CreateTripContex'
 
 export default function SelectTraveller() {
   const [selectedTraveller, setSelectedTraveller] = useState(null)

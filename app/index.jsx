@@ -1,7 +1,7 @@
 import { View } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import OnboardingScreen from "@/components/OnboardingScreen"
-import { auth } from "@/configs/FireBaseConfig"
+import OnboardingScreen from "./../components/OnboardingScreen"
+import { auth } from "./../configs/FireBaseConfig"
 import { Redirect } from "expo-router";
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";

@@ -1,14 +1,14 @@
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useState } from 'react'
-import { styles } from '@/styles/MyTripStyles'
+import { styles } from './../../styles/MyTripStyles'
 import { Ionicons } from '@expo/vector-icons'
-import AddTripCard from '@/components/AddTripCard'
+import AddTripCard from './../../components/AddTripCard'
 import { useRouter } from 'expo-router'
 import { getAuth } from 'firebase/auth'
 import { getDocs, query, collection } from 'firebase/firestore'
 import { firestore } from '@/configs/FireBaseConfig'
 import LoadingIndicator from '@/components/LoadingIndicator'
-import  TripList  from '@/components/TripList'
+import  TripList  from './../../components/TripList'
 import { useFocusEffect } from 'expo-router'
 
 export default function MyTrip() {

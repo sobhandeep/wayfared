@@ -1,6 +1,6 @@
 import { View, Text, FlatList, Image } from 'react-native'
 import axios from 'axios';
-import {GOOGLE_CLOUD_API} from '@/constants/Keys'
+import {GOOGLE_CLOUD_API} from '@env'
 import React, { useEffect, useState } from 'react'
 
 export default function ItineraryCard({item, itineraryCard, cardTitle, itineraryCardImage, detailsText}) {

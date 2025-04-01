@@ -2,9 +2,9 @@ import { useNavigation, useRouter } from 'expo-router'
 import { useEffect, useState } from 'react'
 import { Text, View, TextInput, TouchableOpacity, ToastAndroid, SafeAreaView } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
-import { styles } from '@/styles/SignInStyles'
+import { styles } from './../../../styles/SignInStyles'
 import { signInWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '@/configs/FireBaseConfig'
+import { auth } from './../../../configs/FireBaseConfig'
 
 export default function SignIn() {
 	const navigation = useNavigation()

@@ -2,10 +2,10 @@ import { Text, View, TouchableOpacity, TextInput, SafeAreaView, ToastAndroid } f
 import React, { useEffect, useState } from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import { useNavigation, useRouter } from 'expo-router'
-import { styles } from '@/styles/SignUpStyles'
+import { styles } from './../../../styles/SignUpStyles'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { doc, setDoc } from 'firebase/firestore';
-import { auth, firestore } from '@/configs/FireBaseConfig'
+import { auth, firestore } from './../../../configs/FireBaseConfig'
 
 export default function SignUp() {
   const navigation = useNavigation()

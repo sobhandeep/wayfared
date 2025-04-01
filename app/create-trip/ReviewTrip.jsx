@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity } from 'react-native'
 import React, { useContext } from 'react'
 import { FontAwesome5, FontAwesome6, Ionicons } from '@expo/vector-icons'
-import { styles } from '@/styles/ReviewTripStyles'
+import { styles } from './../../styles/ReviewTripStyles'
 import { useRouter } from 'expo-router'
 import {CreateTripContext} from './../../context/CreateTripContex'
 import { format } from 'date-fns'

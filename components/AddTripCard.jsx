@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { styles } from '@/styles/AddTripStyles'
+import { styles } from './../styles/AddTripStyles'
 import FontAwesome5 from '@expo/vector-icons/FontAwesome6'
 import { useRouter } from 'expo-router'
 
