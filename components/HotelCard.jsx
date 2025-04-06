@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 import axios from 'axios';
-import {GOOGLE_CLOUD_API} from '@env'
+import {GOOGLE_CLOUD_API} from './../constants/Keys'
 import { StarRatingDisplay } from 'react-native-star-rating-widget';
 
 export default function HotelCard({ item, cardTitle, cardPrice, cardImage, card }) {

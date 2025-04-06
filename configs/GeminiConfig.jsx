@@ -1,4 +1,4 @@
-import { GEMINI_API } from '@env'
+import { GEMINI_API } from './../constants/Keys'
 
 const {
   GoogleGenerativeAI,

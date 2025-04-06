@@ -1,7 +1,7 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { styles } from './../styles/TripCardStyles'
-import {GOOGLE_CLOUD_API} from '@env'
+import {GOOGLE_CLOUD_API} from './../constants/Keys'
 import { useRouter } from 'expo-router'
 
 export default function TripCard({trip}) {
