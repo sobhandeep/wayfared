@@ -1,4 +1,4 @@
-import { View, Text, Image, ScrollView, FlatList, TouchableOpacity, Linking, ImageBackground } from 'react-native'
+import { View, Text, Image, FlatList, TouchableOpacity, Linking, ImageBackground } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import React, { useEffect, useState } from 'react'
 import { useLocalSearchParams, useRouter } from 'expo-router'
