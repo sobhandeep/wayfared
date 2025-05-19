@@ -2,12 +2,8 @@ import { View, Image, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { styles } from './../styles/TripListStyles'
 import TripCard from './../components/TripCard'
-<<<<<<< HEAD
-=======
-import {GOOGLE_CLOUD_API} from './../constants/Keys'
->>>>>>> 5aaecb63745aea033836ede3cb42c2086831eb8d
 import { useRouter } from 'expo-router'
-import { GOOGLE_CLOUD_API } from '../constants/Keys'
+import { GOOGLE_CLOUD_API } from './../constants/Keys'
 
 export default function TripList({trips}) {
   const router = useRouter()

@@ -2,11 +2,10 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import React, { useContext } from 'react'
 import { useRouter } from 'expo-router'
 import SearchBar from './../../components/SearchBar'
-import { GOOGLE_CLOUD_API } from './../../constants/Keys'
 import { styles } from './../../styles/SearchPlaceStyles'
 import { CreateTripContext } from './../../context/CreateTripContex'
 import { Ionicons } from '@expo/vector-icons'
-import { GOOGLE_CLOUD_API } from '../../constants/Keys'
+import { GOOGLE_CLOUD_API } from './../../constants/Keys'
 
 export default function SearchPlace() {
   const router = useRouter()

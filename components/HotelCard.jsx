@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Image, Text, View } from 'react-native';
 import axios from 'axios';
-<<<<<<< HEAD
-=======
 import {GOOGLE_CLOUD_API} from './../constants/Keys'
->>>>>>> 5aaecb63745aea033836ede3cb42c2086831eb8d
 import { StarRatingDisplay } from 'react-native-star-rating-widget';
-import { GOOGLE_CLOUD_API } from '../constants/Keys';
 
 export default function HotelCard({ item, cardTitle, cardPrice, cardImage, card }) {
   const [photoUri, setPhotoUri] = useState('')

@@ -7,7 +7,7 @@ import { styles } from './../../styles/TripDetailsStyles'
 import HotelCard from './../../components/HotelCard'
 import ItineraryCard from './../../components/ItineraryCard'
 import { Ionicons } from '@expo/vector-icons'
-import { GOOGLE_CLOUD_API, SEARCH_ENGINE_ID } from '../../constants/Keys'
+import { GOOGLE_CLOUD_API, SEARCH_ENGINE_ID } from './../../constants/Keys'
 
 export default function TripDetails() {
   const {trip} = useLocalSearchParams()
