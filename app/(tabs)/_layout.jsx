@@ -19,7 +19,7 @@ export default function _layout() {
       style={{marginBottom: 20}}
     >
       <Tabs.Screen 
-        name="MyTrip" icon
+        name="MyTrip"
         options={{
           tabBarLabel: ({ focused }) => (
             <Text style={{ 

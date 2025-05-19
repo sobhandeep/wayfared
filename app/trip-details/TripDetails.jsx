@@ -4,10 +4,10 @@ import React, { useEffect, useState } from 'react'
 import { useLocalSearchParams, useRouter } from 'expo-router'
 import axios from 'axios'
 import { styles } from './../../styles/TripDetailsStyles'
-import { GOOGLE_CLOUD_API, SEARCH_ENGINE_ID } from './../../constants/Keys'
 import HotelCard from './../../components/HotelCard'
 import ItineraryCard from './../../components/ItineraryCard'
 import { Ionicons } from '@expo/vector-icons'
+import { GOOGLE_CLOUD_API, SEARCH_ENGINE_ID } from '../../constants/Keys'
 
 export default function TripDetails() {
   const {trip} = useLocalSearchParams()

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+import { GEMINI_API } from "../constants/Keys";
+=======
 import { GEMINI_API } from './../constants/Keys'
+>>>>>>> 5aaecb63745aea033836ede3cb42c2086831eb8d
 
 const {
   GoogleGenerativeAI,

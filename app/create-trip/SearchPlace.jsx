@@ -6,6 +6,7 @@ import { GOOGLE_CLOUD_API } from './../../constants/Keys'
 import { styles } from './../../styles/SearchPlaceStyles'
 import { CreateTripContext } from './../../context/CreateTripContex'
 import { Ionicons } from '@expo/vector-icons'
+import { GOOGLE_CLOUD_API } from '../../constants/Keys'
 
 export default function SearchPlace() {
   const router = useRouter()

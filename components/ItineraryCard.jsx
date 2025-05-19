@@ -1,7 +1,11 @@
 import { View, Text, FlatList, Image } from 'react-native'
 import axios from 'axios';
+<<<<<<< HEAD
+=======
 import {GOOGLE_CLOUD_API} from './../constants/Keys'
+>>>>>>> 5aaecb63745aea033836ede3cb42c2086831eb8d
 import React, { useEffect, useState } from 'react'
+import { GOOGLE_CLOUD_API } from '../constants/Keys';
 
 export default function ItineraryCard({item, itineraryCard, cardTitle, itineraryCardImage, detailsText}) {
   const fetchPhotoReference = async (place) => {
