@@ -10,6 +10,7 @@ export default function SelectDates() {
   const [startDate, setStartDate] = useState()
   const [endDate, setEndDate] = useState()
   const {tripData, setTripData} = useContext(CreateTripContext)
+  const today = new Date()
   const handleContinue = () => {
     if(!startDate || !endDate){
       ToastAndroid.show("Enter Start Date and End Date", ToastAndroid.BOTTOM)
@@ -65,6 +66,7 @@ export default function SelectDates() {
           todayContainerStyle={{borderColor: 'black'}}
           selectedItemColor='black'
           selectedRangeBackgroundColor='#bdbdbd'
+          minDate={today}
         />
       </View>
       <TouchableOpacity

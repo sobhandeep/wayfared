@@ -30,7 +30,7 @@ export default function ItineraryCard({item, itineraryCard, cardTitle, itinerary
   };
   const ImageItem = ({ name }) => {
     const [imageUri, setImageUri] = useState(null);
-  
+    const placeholderImage = require('./../assets/images/placeholder.png');
     useEffect(() => {
       const fetchImage = async () => {
         const uri = await fetchPhotoReference(name);
@@ -41,7 +41,7 @@ export default function ItineraryCard({item, itineraryCard, cardTitle, itinerary
     }, [name]);
     return (
       <Image 
-        source={{ uri: imageUri }} 
+        source={imageUri ? { uri: imageUri } : placeholderImage} 
         style={itineraryCardImage} 
       />
     );

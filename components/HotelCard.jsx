@@ -6,7 +6,7 @@ import { StarRatingDisplay } from 'react-native-star-rating-widget';
 
 export default function HotelCard({ item, cardTitle, cardPrice, cardImage, card }) {
   const [photoUri, setPhotoUri] = useState('')
-  
+  const placeholderImage = require('./../assets/images/placeholder.png');
   useEffect(() => {
     const fetchPhotoReference = async (place) => {
       try {
@@ -41,7 +41,7 @@ export default function HotelCard({ item, cardTitle, cardPrice, cardImage, card 
       style={card}
     >
       <Image
-        source={{ uri: photoUri }}
+        source={photoUri ? { uri: photoUri } : placeholderImage}
         style={cardImage}
       />
       <View>
