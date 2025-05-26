@@ -36,6 +36,6 @@ yarn-error.*
 *.tsbuildinfo
 
 # Keys
-# Keys.jsx
+Keys.jsx
 
 app-example
